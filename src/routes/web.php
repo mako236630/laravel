@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use Whoops\Run;
+use App\Http\Controllers\HelloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get("/",[TestController::class, "index"]);
+route::get("/test",[TestController::class, "index"]);
+route::get("/hello", [HelloController::class, "index"]);
