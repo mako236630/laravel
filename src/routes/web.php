@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use Egulias\EmailValidator\Warning\TLD;
 use Whoops\Run;
-use App\Http\Controllers\HelloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,4 @@ use App\Http\Controllers\HelloController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get("/",[TestController::class, "index"]);
-route::get("/test",[TestController::class, "index"]);
-route::get("/hello", [HelloController::class, "index"]);
+Route::get("/", [TestController::class, "index"]);
