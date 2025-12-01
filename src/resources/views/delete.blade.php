@@ -15,24 +15,43 @@
         background-color: #EEEEEE;
         text-align: center;
     }
+
+    button {
+        padding: 10px 20px;
+        background-color: #289ADC;
+        border: none;
+        color: white;
+    }
 </style>
-@section('title', 'index.blade.php')
+@section('title', 'delete.blade.php')
 
 @section('content')
 <table>
     <tr>
         <th>id</th>
-        <th>name</th>
-        <th>age</th>
-        <th>nationality</th>
-    </tr>
-    @foreach ($authors as $author)
-    <tr>
         <td>{{$author->id}}</td>
+    </tr>
+    <tr>
+        <th>name</th>
         <td>{{$author->name}}</td>
+    </tr>
+    <tr>
+        <th>age</th>
         <td>{{$author->age}}</td>
+    </tr>
+    <tr>
+        <th>nationality</th>
         <td>{{$author->nationality}}</td>
     </tr>
-    @endforeach
+    <tr>
+        <th></th>
+        <td>
+            <form action="/delete?id={{$author->id}}" method="POST">
+                @csrf
+                <button>送信</button>
+            </form>
+        </td>
+    </tr>
 </table>
+
 @endsection
