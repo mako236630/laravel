@@ -23,5 +23,25 @@ class AuthorController extends Controller
         return redirect('/');
     }
 
+    public function edit($id)
+    {
+
+        $author = Author::find($id);
+
+        if (is_null($author)) {
+            return redirect('/'); // 一覧画面など安全な場所に戻す
+        }
+
+        return view('edit', ['form' => $author]);
+    }
+
+    public function update(Request $request)
+    {
+        $form = $request->all();
+        unset($form['_token']);
+        Author::find($request->id)->update($form);
+        return redirect('/');
+    }
+
 
 }

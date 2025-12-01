@@ -26,7 +26,7 @@
 @section('title', 'add.blade.php')
 
 @section('content')
-<form action="" method="post">
+<form action="/add" method="post">
     <table>
         @csrf
         <tr>

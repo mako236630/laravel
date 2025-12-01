@@ -19,3 +19,9 @@ Route::get('/', [AuthorController::class, 'index']);
 Route::get('/add', [AuthorController::class, 'add']);
 
 Route::post('/add', [AuthorController::class, 'create']);
+
+Route::get('/edit/{id}', [AuthorController::class, 'edit']);
+
+Route::get('/edit', [AuthorController::class, 'update']);
+
+Route::patch('/edit', [AuthorController::class, 'update']);
