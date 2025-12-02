@@ -12,6 +12,47 @@ class AuthorController extends Controller
         $authors = Author::all();
         return view('index', ['authors' => $authors]);
     }
+    public function add()
+    {
+        return view('add');
+    }
+    public function create(Request $request)
+    {
+        $form = [
+            'name' => $request->name,
+            'age' => $request->age,
+            'nationality' => $request->nationality,
+        ];
+        Author::create($form);
+
+        return redirect('/');
+    }
+
+    public function edit(Author $author)
+    {
+        return view('edit', ['form' => $author]);
+    }
+
+    
+    public function update(Request $request)
+    {
+        $form = $request->all();
+        unset($form['_token']);
+        Author::find($request->id)->update($form);
+        return redirect('/');
+    }
+
+    public function delete(Author $author)
+    {
+        return view('delete', ['author' => $author]);
+    }
+
+    public function remove(Request $request)
+    {
+        Author::find($request->id)->delete();
+        return redirect('/');
+    }
+
     public function find()
     {
         return view('find', ['input' => '']);
