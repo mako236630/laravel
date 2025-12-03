@@ -1,0 +1,25 @@
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+/storage/oauth-*
+/.env
+/build-*
+/public/hot
+/public/build
+/npm-debug.log
+/yarn-error.log
+/.phpunit.result.cache
+
+# Docker/OS Specific
+docker/mysql/data/
+docker/postgres/data/
+.DS_Store
+.vscode
+/src/vendor
+
+# Laravel Specific (Runtime Files)
+/src/.env
+/src/storage/
+/src/bootstrap/cache/
+/src/vendor/
