@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 
@@ -15,6 +16,8 @@ Route::post('/edit', [AuthorController::class, 'update']);
 Route::get('/delete', [AuthorController::class, 'delete']);
 Route::post('/delete', [AuthorController::class, 'remove']);
 Route::get('/relation', [AuthorController::class, 'relate']);
+Route::get('/session', [SessionController::class, 'getSes']);
+Route::post('/session', [SessionController::class, 'postSes']);
 
  Route::prefix('book')->group(function () {
 
