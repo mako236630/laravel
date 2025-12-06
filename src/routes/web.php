@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
 use App\Models\Person;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\AuthorController;
@@ -26,6 +27,13 @@ Route::post('/session', [SessionController::class, 'postSes']);
     Route::get('/add', [BookController::class, 'add']);
     Route::post('/add', [BookController::class, 'create']);
     
+ });
+
+  Route::get('uuid',function() {
+     $products = Product::all();
+     foreach($products as $product){
+         echo $product.'<br>';
+     }
  });
 
  
