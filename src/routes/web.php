@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Person;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
@@ -24,4 +25,16 @@ Route::post('/session', [SessionController::class, 'postSes']);
     Route::get('/', [BookController::class, 'index']);
     Route::get('/add', [BookController::class, 'add']);
     Route::post('/add', [BookController::class, 'create']);
+    
  });
+
+ 
+ Route::get('/softdelete', function () {
+     Person::find(1)->delete();
+ });
+
+
+Route::get('softdelete/absolute', function () {
+   $result = Person::onlyTrashed()->forceDelete();
+   echo $result;
+});

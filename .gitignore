@@ -1,3 +1,4 @@
 docker/mysql/data/
 .env
 laravel.git/laravel.git/
+laravel.git/
